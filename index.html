@@ -5,11 +5,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Food Reviews</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 </head>
 <body>
+
+    <style>
+        body {
+            background-image: url("http://microbrasserienouvellefrance.com/wp-content/uploads/2017/04/restaurant-montage.png");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-position-y: -15%;
+        }
+    </style>
 
     <!--Entry for a City-->
     <div class = "row">
@@ -17,8 +25,8 @@
         <div class="valign-wrapper" style="width:100%;height:100%;position: absolute;">
         <div class="valign" style="width:100%;">
     <div class = "container">
-    <div class = "card mb-4">
-    <div class = "card-body">
+    <div class = "card mb-4 z-depth-5">
+    <div class = "card-content">
        <form>
             <div class="form-group">
             <!--Search Bar-->
@@ -28,10 +36,9 @@
             </div>
             <!--Submit Button-->
             <div class = "col s2">
-            <button class="btn btn-primary float-right" id="submit-btn">Find Food</button>
+            <button class="btn btn-primary waves-effect waves-light float-right red pulse" id="submit-btn">Find Food</button>
             </div>
         </form>
-        <!-- comment -->
     </div>
     </div>
     </div>
