@@ -1,5 +1,7 @@
 $(document).ready(function(){ 
 
+$("#fmega").hide()
+$("#list").hide()
 
 $("#submit-btn").click(function(e){
     e.preventDefault()
@@ -20,17 +22,20 @@ $.ajax({
             var imgNew = $("<img>")
             var divItem = $("<div>")
             var pNew = $("<p>")
-
+            
             pNew.prepend(element.name)
+            divItem.append(pNew)
             pNew.prepend(element.display_phone)
-            pNew.prepend(element.image_url)
+            divItem.append(pNew)
             pNew.prepend(element.rating)
             console.log(element.location.display_address)
-            imgNew.attr("src", element.image_url);
+            imgNew.attr("src", element.image_url)
             divItem.append(imgNew)
             $("#resturant-results").append(divItem);
         });
-        
+
+        $("#search").hide(2000)
+        $("#list").show(3000)
         
         }
     })
