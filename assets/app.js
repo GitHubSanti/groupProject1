@@ -70,9 +70,24 @@ $.ajax({
     })
 })
 
-$(".section").on("click",function(){
+$(document).on("click",".section",function(){
     var that = $(this).attr("data-id");
     console.log(that);
+    var queryurl = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/"+that;
+    $.ajax({
+        url: queryurl,
+        headers: {
+            'Authorization':'Bearer hMCpjFUoT7ODiFsjTHANudhiTR_64AdWbQLNNwwZjuEcEiaHIROcy2OXbpXEKsuCRd3KDmiflByIdZWJQY4klSRMwR7nkcuD82do3vhdTl5DZME2meZ37I16VtvkW3Yx',
+        },
+        method: 'GET',
+        dataType: 'json',
+        success: function(data){
+            console.log(data)
+            $("#fmega").show(3000)
+            $("#list").hide(2000)
+        }
+        
+    })
 })
     
 })
