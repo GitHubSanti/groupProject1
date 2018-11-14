@@ -2,7 +2,7 @@ $(document).ready(function(){
 
 $("#fmega").hide()
 $("#list").hide()
-
+var apiCall = []
 $("#submit-btn").click(function(e){
     e.preventDefault()
     var location = $("#search-input").val().trim()
@@ -21,15 +21,19 @@ $.ajax({
         data.businesses.forEach(element => {
             // Create necessary layout show individual resturant data
           var divDivider = $("<div class='divider'>");
-          var divSection = $("<div class='section'>");
+          var divSection = $("<div class='section'>")
           var divRow = $("<div class='row'>");
           var divSectionLeftCol = $("<div class='col s8'>");
           var divSectionRightCol = $("<div class='col s4 mt-4'>");
           // Column 1 items
-          var resturantName = $("<h5 id='resturantName' class=''>");
+          var resturantName = $("<h5 class='resturantName'>");
           var resturantRating = $("<p>");
           var resturantPrice = $("<p>");
+
+            divSection.attr("data-id", element.id)
+
           resturantName.text(element.name);
+          
           resturantRating.text(
             element.rating + "/5 " + element.review_count + " reviews"
           );
@@ -49,24 +53,26 @@ $.ajax({
           divSectionLeftCol.append(resturantPrice);
           // Append to column2 in resturant section
           divSectionRightCol.append(resturantNumber);
-
+          apiCall.push(element.id);
+          
           element.location.display_address.forEach(displayAddressLine => {
             var resturantAddressline = $("<p>");
             resturantAddressline.text(displayAddressLine);
             divSectionRightCol.append(resturantAddressline);
+            
           });
 
         });
-
+        console.log(apiCall)
         $("#websearch").hide(2000)
         $("#list").show(3000)
-        
         }
     })
 })
 
-
-
-
+$(".section").on("click",function(){
+    var that = $(this).attr("data-id");
+    console.log(that);
+})
     
 })
