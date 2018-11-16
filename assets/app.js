@@ -2,7 +2,18 @@ $(document).ready(function(){
 $("#websearch").show();
 $("#fmega").hide()
 $("#list").hide()
+
 var apiCall = []
+
+$("#submit-btn-2").click(function(){
+    $("#firstrow").empty()
+    $("#secondrow").empty()
+    $("#thirdrow").empty()
+
+    $("#fmega").hide(3000)
+    $("#list").show(4000)
+})
+
 $("#submit-btn").click(function(e){
     e.preventDefault()
     var location = $("#search-input").val().trim()
@@ -85,8 +96,8 @@ $(document).on("click",".section",function(){
         dataType: 'json',
         success: function(data){
             // console.log(data)
-            $("#fmega").show(3000)
-            $("#list").hide(2000)
+            $("#fmega").show(4000)
+            $("#list").hide(3000)
              
                 // Create necessary layout show individual resturant data
                 
