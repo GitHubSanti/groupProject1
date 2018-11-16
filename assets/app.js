@@ -181,5 +181,54 @@ $(document).on("click",".section",function(){
     })
 
 })
+    //Weather AJAX Call
+    $("#submit-btn").click(function(event) {
+        event.preventDefault();
+        var location = $("#search-input")
+          .val()
+          .trim();
+        var queryURL =
+          "https://api.openweathermap.org/data/2.5/weather?" +
+          "q=" +
+          location +
+          ",Burundi&units=imperial&appid=166a433c57516f51dfab1f7edaed8413";
+        $.ajax({
+          url: queryURL,
+          method: "GET"
+        }).then(function(response) {
+          console.log("Weather API Content:");
+          console.log(response);
+          console.log(response.weather[0].icon);
     
+          // Get city name
+          var cityName = $("#city");
+          cityName.text(response.name);
+    
+          // Get icon code
+          var iconCode = response.weather[0].icon;
+          var iconURL = "http://openweathermap.org/img/w/" + iconCode + ".png";
+          console.log(iconURL);
+    
+          // Pull in weather icon based on iconCode received
+          var icon = $("#weather-icon-img-tag");
+          icon.attr("src", iconURL);
+          $("#city-weather-results").append(icon);
+          console.log(icon);
+    
+          // Get weather description
+          var weatherDescription = $("#weather-description");
+          weatherDescription.text(response.weather[0].description);
+    
+          // Get current temperature, high temp, low temp
+          var currentTemp = $("#weather-temp-current");
+          console.log(response.main.temp);
+          currentTemp.html(response.main.temp + "&#8457;");
+          var highTemp = $("#weather-temp-high");
+          console.log(response.main.temp_max);
+          highTemp.html(response.main.temp_max + "&#8457;");
+          var lowTemp = $("#weather-temp-low");
+          console.log(response.main.temp_min);
+          lowTemp.html(response.main.temp_min + "&#8457;");
+        })
+    })    
 })
