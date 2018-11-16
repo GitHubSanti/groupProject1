@@ -1,15 +1,23 @@
-/* body {
-  background-image: url("http://microbrasserienouvellefrance.com/wp-content/uploads/2017/04/restaurant-montage.png");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-position-y: -15%;
-} */
-#splashPageContent {
-  width:100%;
-  height:100%;
-  position: absolute;
-  background-image: url("http://microbrasserienouvellefrance.com/wp-content/uploads/2017/04/restaurant-montage.png");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-position-y: 15%;
+/*Div ID For First Page*/ {
+    background-image: url("images/searchpage.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-position-y: 50%;
+    background-size: cover;
+}
+
+/*Div ID For Second Page*/ {
+    background-image: url("images/resultspage.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-position-y: 50%;
+    background-size: cover;
+}
+
+/* Div Id For Third Page*/ {
+    background-image: url("images/resturantpage.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-position-y: 50%;
+    background-size: cover;
 }
